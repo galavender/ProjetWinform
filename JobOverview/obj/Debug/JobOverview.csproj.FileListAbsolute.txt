@@ -1,1 +1,2 @@
 C:\Users\glavender\Documents\Winforms\Projet\JobOverviewWin\JobOverview\bin\Debug\JobOverview.exe.config
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\bin\Debug\JobOverview.exe.config
