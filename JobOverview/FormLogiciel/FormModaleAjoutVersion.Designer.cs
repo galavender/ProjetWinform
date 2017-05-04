@@ -62,6 +62,7 @@
             this.DtpDateOuverture.Name = "DtpDateOuverture";
             this.DtpDateOuverture.Size = new System.Drawing.Size(200, 20);
             this.DtpDateOuverture.TabIndex = 2;
+            this.DtpDateOuverture.Value = new System.DateTime(2017, 5, 4, 0, 0, 0, 0);
             // 
             // DtpDateSortiePrevue
             // 
@@ -69,6 +70,7 @@
             this.DtpDateSortiePrevue.Name = "DtpDateSortiePrevue";
             this.DtpDateSortiePrevue.Size = new System.Drawing.Size(200, 20);
             this.DtpDateSortiePrevue.TabIndex = 3;
+            this.DtpDateSortiePrevue.Value = new System.DateTime(2017, 5, 4, 0, 0, 0, 0);
             // 
             // DtpDateSortieReelle
             // 
@@ -76,6 +78,7 @@
             this.DtpDateSortieReelle.Name = "DtpDateSortieReelle";
             this.DtpDateSortieReelle.Size = new System.Drawing.Size(200, 20);
             this.DtpDateSortieReelle.TabIndex = 4;
+            this.DtpDateSortieReelle.Value = new System.DateTime(2017, 5, 4, 0, 0, 0, 0);
             // 
             // label1
             // 

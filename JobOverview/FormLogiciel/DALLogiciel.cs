@@ -50,7 +50,6 @@ namespace JobOverview
 
 
         }
-
         private static void GetModule(string codeLog, List<Module> lstModule)
         {
             
@@ -84,9 +83,6 @@ namespace JobOverview
         private static void GetVersion(string codeLog, List<Version> lstVersion)
         {
             
-
-          
-
             var connectString = Properties.Settings.Default.JobOverviewStringConnection;
             string queryString = @" select v.NumeroVersion, v.CodeLogiciel, v.Millesime, v.DateOuverture, v.DateSortiePrevue, v.DateSortieReelle, max(r.NumeroRelease) as DerniereRelease
                                     from jo.Version v

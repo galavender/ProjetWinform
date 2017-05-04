@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.CbPersonne = new System.Windows.Forms.ComboBox();
+            this.CbVersion = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.CheckBTermi = new System.Windows.Forms.CheckBox();
+            this.DgvTacheProd = new System.Windows.Forms.DataGridView();
             this.LblDescriptionTache = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvTacheProd)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // CbPersonne
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(36, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
+            this.CbPersonne.FormattingEnabled = true;
+            this.CbPersonne.Location = new System.Drawing.Point(36, 33);
+            this.CbPersonne.Name = "CbPersonne";
+            this.CbPersonne.Size = new System.Drawing.Size(121, 21);
+            this.CbPersonne.TabIndex = 0;
             // 
-            // comboBox2
+            // CbVersion
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(199, 33);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 1;
+            this.CbVersion.FormattingEnabled = true;
+            this.CbVersion.Location = new System.Drawing.Point(199, 33);
+            this.CbVersion.Name = "CbVersion";
+            this.CbVersion.Size = new System.Drawing.Size(121, 21);
+            this.CbVersion.TabIndex = 1;
             // 
             // label1
             // 
@@ -72,23 +72,23 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Version";
             // 
-            // checkBox1
+            // CheckBTermi
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(360, 35);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(110, 17);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "Tâches terminées";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.CheckBTermi.AutoSize = true;
+            this.CheckBTermi.Location = new System.Drawing.Point(360, 35);
+            this.CheckBTermi.Name = "CheckBTermi";
+            this.CheckBTermi.Size = new System.Drawing.Size(110, 17);
+            this.CheckBTermi.TabIndex = 5;
+            this.CheckBTermi.Text = "Tâches terminées";
+            this.CheckBTermi.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // DgvTacheProd
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(36, 101);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(406, 368);
-            this.dataGridView1.TabIndex = 6;
+            this.DgvTacheProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvTacheProd.Location = new System.Drawing.Point(36, 101);
+            this.DgvTacheProd.Name = "DgvTacheProd";
+            this.DgvTacheProd.Size = new System.Drawing.Size(406, 368);
+            this.DgvTacheProd.TabIndex = 6;
             // 
             // LblDescriptionTache
             // 
@@ -106,15 +106,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(787, 514);
             this.Controls.Add(this.LblDescriptionTache);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.DgvTacheProd);
+            this.Controls.Add(this.CheckBTermi);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.CbVersion);
+            this.Controls.Add(this.CbPersonne);
             this.Name = "FormTachesProduction";
             this.Text = "FormTachesProduction";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvTacheProd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,12 +122,12 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox CbPersonne;
+        private System.Windows.Forms.ComboBox CbVersion;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.CheckBox CheckBTermi;
+        private System.Windows.Forms.DataGridView DgvTacheProd;
         private System.Windows.Forms.Label LblDescriptionTache;
     }
 }

@@ -40,8 +40,8 @@ namespace JobOverview
                 {
                    if(!LstLogiciel.Select(c=>c.LstVersion).FirstOrDefault().Select(c=>c.Numero).Contains(form.version.Numero) 
                         && form.version.Millesime!=0
-                        && form.version.DateOuverture != DateTime.MinValue
-                        && form.version.DateSortiePrévue != DateTime.MinValue)
+                        && form.version.DateOuverture !=  DateTime.Parse("01/01/1753")
+                        && form.version.DateSortiePrévue != DateTime.Parse("01/01/1753"))
                     {
                         LstLogiciel.Where(c => c.Code == (string)CbLog.SelectedItem).Select(c => c.LstVersion).FirstOrDefault().Add(form.version);
                         DgvVersion.DataSource = LstLogiciel.Where(c => c.Code == (string)CbLog.SelectedItem).Select(c => c.LstVersion).FirstOrDefault().ToList();

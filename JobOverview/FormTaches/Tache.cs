@@ -14,5 +14,6 @@ namespace JobOverview
         public string CodeActivité { get; set; }
         public string Login { get; set; }
         public string Description { get; set; }
+        public List<Travail> LstTravail { get; set; }
     }
 }

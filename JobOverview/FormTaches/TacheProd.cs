@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace JobOverview
 {
-    public class TacheProd
+    public class TacheProd:Tache
     {
-        public Guid IdTache { get; set; }
         public int Numero { get; set; }
         public float DureePrevue { get; set; }
         public float DureeRestanteEstimee { get; set; }

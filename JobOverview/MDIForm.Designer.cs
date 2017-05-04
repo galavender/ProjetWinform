@@ -31,10 +31,13 @@
             this.menuGeneral = new System.Windows.Forms.MenuStrip();
             this.MenuLogEtVers = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuTache = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuWindows = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuTacheProd = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuTachesAnnexes = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuTempsDeTravail = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuWindows = new System.Windows.Forms.ToolStripMenuItem();
+            this.importExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuExport = new System.Windows.Forms.ToolStripMenuItem();
             this.menuGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,6 +47,7 @@
             this.MenuLogEtVers,
             this.MenuTache,
             this.MenuTempsDeTravail,
+            this.importExportToolStripMenuItem,
             this.menuWindows});
             this.menuGeneral.Location = new System.Drawing.Point(0, 0);
             this.menuGeneral.Name = "menuGeneral";
@@ -66,12 +70,6 @@
             this.MenuTache.Size = new System.Drawing.Size(55, 20);
             this.MenuTache.Text = "Tâches";
             // 
-            // menuWindows
-            // 
-            this.menuWindows.Name = "menuWindows";
-            this.menuWindows.Size = new System.Drawing.Size(63, 20);
-            this.menuWindows.Text = "Fenêtres";
-            // 
             // MenuTacheProd
             // 
             this.MenuTacheProd.Name = "MenuTacheProd";
@@ -89,6 +87,33 @@
             this.MenuTempsDeTravail.Name = "MenuTempsDeTravail";
             this.MenuTempsDeTravail.Size = new System.Drawing.Size(105, 20);
             this.MenuTempsDeTravail.Text = "Temps de travail";
+            // 
+            // menuWindows
+            // 
+            this.menuWindows.Name = "menuWindows";
+            this.menuWindows.Size = new System.Drawing.Size(63, 20);
+            this.menuWindows.Text = "Fenêtres";
+            // 
+            // importExportToolStripMenuItem
+            // 
+            this.importExportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuImport,
+            this.MenuExport});
+            this.importExportToolStripMenuItem.Name = "importExportToolStripMenuItem";
+            this.importExportToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.importExportToolStripMenuItem.Text = "Import/Export";
+            // 
+            // MenuImport
+            // 
+            this.MenuImport.Name = "MenuImport";
+            this.MenuImport.Size = new System.Drawing.Size(152, 22);
+            this.MenuImport.Text = "Import";
+            // 
+            // MenuExport
+            // 
+            this.MenuExport.Name = "MenuExport";
+            this.MenuExport.Size = new System.Drawing.Size(152, 22);
+            this.MenuExport.Text = "Export";
             // 
             // MDIForm
             // 
@@ -116,6 +141,9 @@
         private System.Windows.Forms.ToolStripMenuItem MenuTacheProd;
         private System.Windows.Forms.ToolStripMenuItem MenuTachesAnnexes;
         private System.Windows.Forms.ToolStripMenuItem MenuTempsDeTravail;
+        private System.Windows.Forms.ToolStripMenuItem importExportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuImport;
+        private System.Windows.Forms.ToolStripMenuItem MenuExport;
     }
 }
 

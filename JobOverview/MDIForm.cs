@@ -9,19 +9,26 @@ namespace JobOverview
 		// Collection des fenêtres filles
 		public Dictionary<string, Form> ChildForms { get; private set; }
 
-		public MDIForm()
+        public static List<TacheProd> LstTacheProd { get; set; }
+
+        public MDIForm()
 		{
 			InitializeComponent();
 			ChildForms = new Dictionary<string, Form>();
             
             MenuLogEtVers.Click += (object sender, EventArgs e) => ShowChild("JobOverview.FormLogicielEtVersion");
             MenuTacheProd.Click+= (object sender, EventArgs e) => ShowChild("JobOverview.FormTachesProduction");
-       
+            MenuImport.Click += MenuImport_Click;
 
         }
 
-		// Affichage d'une fenêtre fille
-		private void ShowChild(string name)
+        private void MenuImport_Click(object sender, EventArgs e)
+        {
+            LstTacheProd = DALTaches.ImportTaches();
+        }
+
+        // Affichage d'une fenêtre fille
+        private void ShowChild(string name)
 		{
 			// Dans la collection des fenêtres filles, on recherche une fenêtre
 			// dont le nom correspond à celui passé en paramètre...

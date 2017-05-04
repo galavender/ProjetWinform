@@ -8,7 +8,6 @@ C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.
 C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.csproj.GenerateResource.Cache
 C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.exe
 C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.pdb
-C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormLogiciel.FormLogicielEtVersion.resources
-C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormLogiciel.FormModaleAjoutVersion.resources
-C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormTaches.FormTachesProduction.resources
-C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormImportExport.FormImportExport.resources
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormLogicielEtVersion.resources
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormModaleAjoutVersion.resources
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormTachesProduction.resources
