@@ -28,66 +28,103 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.menuGeneral = new System.Windows.Forms.MenuStrip();
-			this.mnuPersonnes = new System.Windows.Forms.ToolStripMenuItem();
-			this.menu2 = new System.Windows.Forms.ToolStripMenuItem();
-			this.menuWindows = new System.Windows.Forms.ToolStripMenuItem();
-			this.menuGeneral.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// menuGeneral
-			// 
-			this.menuGeneral.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuPersonnes,
-            this.menu2,
+            this.menuGeneral = new System.Windows.Forms.MenuStrip();
+            this.MenuLogEtVers = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuTache = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuWindows = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuTacheProd = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuTachesAnnexes = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuTempsDeTravail = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuImportExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuGeneral.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // menuGeneral
+            // 
+            this.menuGeneral.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuLogEtVers,
+            this.MenuTache,
+            this.MenuTempsDeTravail,
+            this.MenuImportExport,
             this.menuWindows});
-			this.menuGeneral.Location = new System.Drawing.Point(0, 0);
-			this.menuGeneral.Name = "menuGeneral";
-			this.menuGeneral.Size = new System.Drawing.Size(787, 24);
-			this.menuGeneral.TabIndex = 0;
-			this.menuGeneral.Text = "menuStrip1";
-			// 
-			// mnuPersonnes
-			// 
-			this.mnuPersonnes.Name = "mnuPersonnes";
-			this.mnuPersonnes.Size = new System.Drawing.Size(94, 20);
-			this.mnuPersonnes.Text = "Menu1";
-			// 
-			// menu2
-			// 
-			this.menu2.Name = "menu2";
-			this.menu2.Size = new System.Drawing.Size(56, 20);
-			this.menu2.Text = "Menu2";
-			// 
-			// menuWindows
-			// 
-			this.menuWindows.Name = "menuWindows";
-			this.menuWindows.Size = new System.Drawing.Size(63, 20);
-			this.menuWindows.Text = "Fenêtres";
-			// 
-			// MDIForm
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(787, 514);
-			this.Controls.Add(this.menuGeneral);
-			this.IsMdiContainer = true;
-			this.MainMenuStrip = this.menuGeneral;
-			this.Name = "MDIForm";
-			this.Text = "JobOverview";
-			this.menuGeneral.ResumeLayout(false);
-			this.menuGeneral.PerformLayout();
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.menuGeneral.Location = new System.Drawing.Point(0, 0);
+            this.menuGeneral.Name = "menuGeneral";
+            this.menuGeneral.Size = new System.Drawing.Size(787, 24);
+            this.menuGeneral.TabIndex = 0;
+            this.menuGeneral.Text = "menuStrip1";
+            // 
+            // MenuLogEtVers
+            // 
+            this.MenuLogEtVers.Name = "MenuLogEtVers";
+            this.MenuLogEtVers.Size = new System.Drawing.Size(119, 20);
+            this.MenuLogEtVers.Text = "Logiciels et version";
+            // 
+            // MenuTache
+            // 
+            this.MenuTache.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuTacheProd,
+            this.MenuTachesAnnexes});
+            this.MenuTache.Name = "MenuTache";
+            this.MenuTache.Size = new System.Drawing.Size(55, 20);
+            this.MenuTache.Text = "Tâches";
+            // 
+            // menuWindows
+            // 
+            this.menuWindows.Name = "menuWindows";
+            this.menuWindows.Size = new System.Drawing.Size(63, 20);
+            this.menuWindows.Text = "Fenêtres";
+            // 
+            // MenuTacheProd
+            // 
+            this.MenuTacheProd.Name = "MenuTacheProd";
+            this.MenuTacheProd.Size = new System.Drawing.Size(188, 22);
+            this.MenuTacheProd.Text = "Tâches de production";
+            // 
+            // MenuTachesAnnexes
+            // 
+            this.MenuTachesAnnexes.Name = "MenuTachesAnnexes";
+            this.MenuTachesAnnexes.Size = new System.Drawing.Size(188, 22);
+            this.MenuTachesAnnexes.Text = "Tâches annexes";
+            // 
+            // MenuTempsDeTravail
+            // 
+            this.MenuTempsDeTravail.Name = "MenuTempsDeTravail";
+            this.MenuTempsDeTravail.Size = new System.Drawing.Size(105, 20);
+            this.MenuTempsDeTravail.Text = "Temps de travail";
+            // 
+            // MenuImportExport
+            // 
+            this.MenuImportExport.Name = "MenuImportExport";
+            this.MenuImportExport.Size = new System.Drawing.Size(93, 20);
+            this.MenuImportExport.Text = "Import/Export";
+            // 
+            // MDIForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(787, 514);
+            this.Controls.Add(this.menuGeneral);
+            this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuGeneral;
+            this.Name = "MDIForm";
+            this.Text = "JobOverview";
+            this.menuGeneral.ResumeLayout(false);
+            this.menuGeneral.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 
 		#endregion
 
 		private System.Windows.Forms.MenuStrip menuGeneral;
-		private System.Windows.Forms.ToolStripMenuItem mnuPersonnes;
+		private System.Windows.Forms.ToolStripMenuItem MenuLogEtVers;
 		private System.Windows.Forms.ToolStripMenuItem menuWindows;
-		private System.Windows.Forms.ToolStripMenuItem menu2;
-	}
+		private System.Windows.Forms.ToolStripMenuItem MenuTache;
+        private System.Windows.Forms.ToolStripMenuItem MenuTacheProd;
+        private System.Windows.Forms.ToolStripMenuItem MenuTachesAnnexes;
+        private System.Windows.Forms.ToolStripMenuItem MenuTempsDeTravail;
+        private System.Windows.Forms.ToolStripMenuItem MenuImportExport;
+    }
 }
 

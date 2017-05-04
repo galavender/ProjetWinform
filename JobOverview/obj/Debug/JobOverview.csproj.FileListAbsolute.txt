@@ -1,2 +1,12 @@
 C:\Users\glavender\Documents\Winforms\Projet\JobOverviewWin\JobOverview\bin\Debug\JobOverview.exe.config
 C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\bin\Debug\JobOverview.exe.config
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\bin\Debug\JobOverview.exe
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\bin\Debug\JobOverview.pdb
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.csprojResolveAssemblyReference.cache
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.MDIForm.resources
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.Properties.Resources.resources
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.csproj.GenerateResource.Cache
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.exe
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.pdb
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormLogiciel.FormLogicielEtVersion.resources
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormLogiciel.FormModaleAjoutVersion.resources

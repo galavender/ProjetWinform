@@ -14,8 +14,7 @@ namespace JobOverview
 			InitializeComponent();
 			ChildForms = new Dictionary<string, Form>();
 
-			// TODO : Branchement des menus
-			// menu1.Click += (object sender, EventArgs e) => ShowChild("MDIApp.Form1");
+			MenuLogEtVers.Click += (object sender, EventArgs e) => ShowChild("JobOverview.FormLogiciel.FormLogicielEtVersion");
 		}
 
 		// Affichage d'une fenêtre fille

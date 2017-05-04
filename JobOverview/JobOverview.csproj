@@ -45,6 +45,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormLogiciel\DALLogiciel.cs" />
+    <Compile Include="FormLogiciel\FormLogicielEtVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogiciel\FormLogicielEtVersion.Designer.cs">
+      <DependentUpon>FormLogicielEtVersion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogiciel\FormModaleAjoutVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogiciel\FormModaleAjoutVersion.Designer.cs">
+      <DependentUpon>FormModaleAjoutVersion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogiciel\Logiciel.cs" />
+    <Compile Include="FormLogiciel\Module.cs" />
+    <Compile Include="FormLogiciel\Version.cs" />
     <Compile Include="MDIForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,6 +69,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormLogiciel\FormLogicielEtVersion.resx">
+      <DependentUpon>FormLogicielEtVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogiciel\FormModaleAjoutVersion.resx">
+      <DependentUpon>FormModaleAjoutVersion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDIForm.resx">
       <DependentUpon>MDIForm.cs</DependentUpon>
     </EmbeddedResource>
