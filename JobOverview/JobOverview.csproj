@@ -61,6 +61,16 @@
     <Compile Include="FormLogiciel\Logiciel.cs" />
     <Compile Include="FormLogiciel\Module.cs" />
     <Compile Include="FormLogiciel\Version.cs" />
+    <Compile Include="FormTaches\DALTaches.cs" />
+    <Compile Include="FormTaches\FormTachesProduction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTaches\FormTachesProduction.Designer.cs">
+      <DependentUpon>FormTachesProduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTaches\Personne.cs" />
+    <Compile Include="FormTaches\Tache.cs" />
+    <Compile Include="FormTaches\TacheProd.cs" />
     <Compile Include="MDIForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogiciel\FormModaleAjoutVersion.resx">
       <DependentUpon>FormModaleAjoutVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTaches\FormTachesProduction.resx">
+      <DependentUpon>FormTachesProduction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDIForm.resx">
       <DependentUpon>MDIForm.cs</DependentUpon>

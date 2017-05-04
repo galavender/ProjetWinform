@@ -12,21 +12,29 @@ namespace JobOverview.FormLogiciel
 {
     public partial class FormModaleAjoutVersion : Form
     {
-        public Version version { get; set; }
+        public Version version { get; set; } = new Version();
         public FormModaleAjoutVersion()
         {
             InitializeComponent();
+            DtpDateOuverture.ValueChanged += (object sender, EventArgs e)=> { version.DateOuverture = DtpDateOuverture.Value; };
+            DtpDateSortiePrevue.ValueChanged += (object sender, EventArgs e) => { version.DateSortiePrévue = DtpDateSortiePrevue.Value; };
+            DtpDateSortieReelle.ValueChanged += (object sender, EventArgs e) => { version.DateSortieRéelle = DtpDateSortieReelle.Value; };
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
+
             if (this.DialogResult==DialogResult.OK)
             {
-                if (TbNumero.Text != "")
-                    version.Numero = float.Parse(TbNumero.Text);
-                if (TbMillesime.Text != "")
-                    version.Millesime = Int16.Parse(TbMillesime.Text);
-               
+                float f;
+                if (TbNumero.Text != "" && float.TryParse(TbNumero.Text,out f))
+                    version.Numero = f;
+                Int16 i;
+                if (TbMillesime.Text != "" && Int16.TryParse(TbMillesime.Text, out i))
+                    version.Millesime = i;
+
             }
+
             base.OnClosing(e);
         }
     }

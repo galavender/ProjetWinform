@@ -10,3 +10,5 @@ C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.
 C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.pdb
 C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormLogiciel.FormLogicielEtVersion.resources
 C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormLogiciel.FormModaleAjoutVersion.resources
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormTaches.FormTachesProduction.resources
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormImportExport.FormImportExport.resources

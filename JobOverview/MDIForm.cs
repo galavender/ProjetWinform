@@ -13,9 +13,12 @@ namespace JobOverview
 		{
 			InitializeComponent();
 			ChildForms = new Dictionary<string, Form>();
+            
+            MenuLogEtVers.Click += (object sender, EventArgs e) => ShowChild("JobOverview.FormLogiciel.FormLogicielEtVersion");
+            MenuTacheProd.Click+= (object sender, EventArgs e) => ShowChild("JobOverview.FormTaches.FormTachesProduction");
+            MenuImportExport.Click+=(object sender, EventArgs e) => ShowChild("JobOverview.FormImportExport.FormImportExport");
 
-			MenuLogEtVers.Click += (object sender, EventArgs e) => ShowChild("JobOverview.FormLogiciel.FormLogicielEtVersion");
-		}
+        }
 
 		// Affichage d'une fenêtre fille
 		private void ShowChild(string name)

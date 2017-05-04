@@ -18,7 +18,17 @@ namespace JobOverview.FormLogiciel
         {
             InitializeComponent();
             BtnVersionPlus.Click += BtnVersionPlus_Click;
+            BtnSupprimerVersion.Click += BtnSupprimerVersion_Click;
             CbLog.SelectedIndexChanged += CbLog_SelectedIndexChanged;
+        }
+
+        private void BtnSupprimerVersion_Click(object sender, EventArgs e)
+        {
+            if (DgvVersion.CurrentRow!=null)
+            {
+                LstLogiciel.Where(c => c.Code == (string)CbLog.SelectedItem).Select(c => c.LstVersion).FirstOrDefault().Remove((Version)DgvVersion.CurrentRow.DataBoundItem);
+                DgvVersion.DataSource = LstLogiciel.Where(c => c.Code == (string)CbLog.SelectedItem).Select(c => c.LstVersion).FirstOrDefault().ToList();
+            }
         }
 
         private void BtnVersionPlus_Click(object sender, EventArgs e)
@@ -28,7 +38,14 @@ namespace JobOverview.FormLogiciel
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                   
+                   if(!LstLogiciel.Select(c=>c.LstVersion).FirstOrDefault().Select(c=>c.Numero).Contains(form.version.Numero) 
+                        && form.version.Millesime!=0
+                        && form.version.DateOuverture != DateTime.MinValue
+                        && form.version.DateSortiePrévue != DateTime.MinValue)
+                    {
+                        LstLogiciel.Where(c => c.Code == (string)CbLog.SelectedItem).Select(c => c.LstVersion).FirstOrDefault().Add(form.version);
+                        DgvVersion.DataSource = LstLogiciel.Where(c => c.Code == (string)CbLog.SelectedItem).Select(c => c.LstVersion).FirstOrDefault().ToList();
+                    }
 
                 }
             }
