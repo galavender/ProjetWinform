@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JobOverview.FormLogiciel
+namespace JobOverview
 {
     public static class DALLogiciel
     {

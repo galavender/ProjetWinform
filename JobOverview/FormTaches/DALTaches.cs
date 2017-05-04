@@ -4,11 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JobOverview.FormTaches
+namespace JobOverview
 {
     public static class DALTaches
     {
         public static void GetPersonnes()
+        {
+
+        }
+
+        public static void ImportTaches()
         {
 
         }

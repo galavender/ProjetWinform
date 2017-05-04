@@ -35,7 +35,6 @@
             this.MenuTacheProd = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuTachesAnnexes = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuTempsDeTravail = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuImportExport = new System.Windows.Forms.ToolStripMenuItem();
             this.menuGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +44,6 @@
             this.MenuLogEtVers,
             this.MenuTache,
             this.MenuTempsDeTravail,
-            this.MenuImportExport,
             this.menuWindows});
             this.menuGeneral.Location = new System.Drawing.Point(0, 0);
             this.menuGeneral.Name = "menuGeneral";
@@ -92,12 +90,6 @@
             this.MenuTempsDeTravail.Size = new System.Drawing.Size(105, 20);
             this.MenuTempsDeTravail.Text = "Temps de travail";
             // 
-            // MenuImportExport
-            // 
-            this.MenuImportExport.Name = "MenuImportExport";
-            this.MenuImportExport.Size = new System.Drawing.Size(93, 20);
-            this.MenuImportExport.Text = "Import/Export";
-            // 
             // MDIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,7 +116,6 @@
         private System.Windows.Forms.ToolStripMenuItem MenuTacheProd;
         private System.Windows.Forms.ToolStripMenuItem MenuTachesAnnexes;
         private System.Windows.Forms.ToolStripMenuItem MenuTempsDeTravail;
-        private System.Windows.Forms.ToolStripMenuItem MenuImportExport;
     }
 }
 

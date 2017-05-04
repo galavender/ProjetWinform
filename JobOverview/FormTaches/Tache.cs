@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JobOverview.FormTaches
+namespace JobOverview
 {
     public class Tache
     {

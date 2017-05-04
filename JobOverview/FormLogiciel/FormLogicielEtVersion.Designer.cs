@@ -1,4 +1,4 @@
-﻿namespace JobOverview.FormLogiciel
+﻿namespace JobOverview
 {
     partial class FormLogicielEtVersion
     {

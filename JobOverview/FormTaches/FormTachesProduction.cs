@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JobOverview.FormTaches
+namespace JobOverview
 {
     public partial class FormTachesProduction : Form
     {

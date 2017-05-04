@@ -1,4 +1,4 @@
-﻿namespace JobOverview.FormTaches
+﻿namespace JobOverview
 {
     partial class FormTachesProduction
     {

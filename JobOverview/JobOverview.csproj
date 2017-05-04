@@ -71,6 +71,7 @@
     <Compile Include="FormTaches\Personne.cs" />
     <Compile Include="FormTaches\Tache.cs" />
     <Compile Include="FormTaches\TacheProd.cs" />
+    <Compile Include="FormTaches\Travail.cs" />
     <Compile Include="MDIForm.cs">
       <SubType>Form</SubType>
     </Compile>
