@@ -1,7 +1,7 @@
 Vous trouverez le fichier exécutable ainsi que le fichier de configuration dans le dossier JobOverview\bin\Release
 
 Avant de lancer l'application veuillez effectuer les étapes suivantes : 
-  - modifier le paramètre de connection à la base de données en remplaçant le contenu de la balise connectionString par votre         paramètre de connection dans le fichier JobOverview.exe.config
+  - modifier le paramètre de connection à la base de données en remplaçant l'attribut connectionString dans la balise Add par votre paramètre de connection dans le fichier JobOverview.exe.config
   - si vous voulez importer des taches de production, placer ce fichier dans le dossier principal et nommez le "TachesProd.xml"
   - ouvrer un new query dans SqlServer et éxécuter le script "Création des tables.sql"
 
