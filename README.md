@@ -1,5 +1,9 @@
 Vous trouverez le fichier exécutable ainsi que le fichier de configuration dans le dossier JobOverview\bin\Release
-Pour modifier le paramètre de connection à la base de données veuillez remplacer le contenue de la balise connectionString par votre paramètre de connection dans le fichier JobOverview.exe.config
+
+Avant de lancer l'application veuillez effectuer les étapes suivantes : 
+  - modifier le paramètre de connection à la base de données en remplaçant le contenu de la balise connectionString par votre         paramètre de connection dans le fichier JobOverview.exe.config
+  - si vous voulez importer des taches de production, placer ce fichier dans le dossier principal et nommez le "TachesProd.xml"
+  - ouvrer un new query dans SqlServer et éxécuter le script "Création des tables.sql"
 
 En cliquant sur le menu "Logiciels et version", cette application vous permettra d'observer les modules d'un logiciel et de modifier les versions de ce logiciel si ces versions de sont plus référencés.
 
