@@ -85,17 +85,18 @@
             // 
             // DgvTacheProd
             // 
+            this.DgvTacheProd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvTacheProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvTacheProd.Location = new System.Drawing.Point(36, 101);
             this.DgvTacheProd.Name = "DgvTacheProd";
-            this.DgvTacheProd.Size = new System.Drawing.Size(406, 368);
+            this.DgvTacheProd.Size = new System.Drawing.Size(717, 165);
             this.DgvTacheProd.TabIndex = 6;
             // 
             // LblDescriptionTache
             // 
             this.LblDescriptionTache.AutoSize = true;
-            this.LblDescriptionTache.Location = new System.Drawing.Point(488, 101);
-            this.LblDescriptionTache.MaximumSize = new System.Drawing.Size(200, 0);
+            this.LblDescriptionTache.Location = new System.Drawing.Point(33, 312);
+            this.LblDescriptionTache.MaximumSize = new System.Drawing.Size(500, 0);
             this.LblDescriptionTache.Name = "LblDescriptionTache";
             this.LblDescriptionTache.Size = new System.Drawing.Size(93, 13);
             this.LblDescriptionTache.TabIndex = 7;
