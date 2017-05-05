@@ -1,1 +1,13 @@
 C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\bin\Release\JobOverview.exe.config
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\bin\Release\JobOverview.exe
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\bin\Release\JobOverview.pdb
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Release\JobOverview.csprojResolveAssemblyReference.cache
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Release\JobOverview.FormLogicielEtVersion.resources
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Release\JobOverview.FormModaleAjoutVersion.resources
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Release\JobOverview.FormSaisieTache.resources
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Release\JobOverview.FormTachesProduction.resources
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Release\JobOverview.MDIForm.resources
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Release\JobOverview.Properties.Resources.resources
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Release\JobOverview.csproj.GenerateResource.Cache
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Release\JobOverview.exe
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Release\JobOverview.pdb
