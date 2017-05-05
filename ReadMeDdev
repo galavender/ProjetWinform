@@ -1,0 +1,66 @@
+Documentation technique à l'intention d'un developpeur.
+
+Il y a pour l'instant 5 fenetres dans cette application :
+
+- MDIForm : C'est la fenetre mère, elle référence toute les fenetres et ne sert qu'à gérer les fenetres filles 
+  (elle sert aussi à gérer l'import/ export qui n'ont pas de fenetre propre)  
+  
+- FormLogicielEtVersion : Cette fenetre permet de visualiser les différents modules et versions liés à un logiciel 
+  via des requetes LINK, le logiciel est selectionner dans une ComboBox et les modules et versions sont contenus 
+  dans des DataGridView qui sont mis à jour à chaque changement dans la ComboBox du logiciel.
+  
+  Cette fenetre contient aussi deux boutons : un bouton qui permet de supprimer la version selectionner dans le datagrid view 
+  et un bouton qui ouvre la fenetre modale ajout de version.
+  
+- FormModaleAjoutVersion : Comme dit précedemment cette fenetre est appelé à l'aide du bouton "Ajouter version" 
+  dans la form FormLogicielEtVersion, elle contient 2 TextBox pour le numéro de version et le millesime et 3 
+  DateTimePicker pour les trois dates (ouverture, sortie prévue et sortie réelle).
+  
+  A la fermeture de cette fenetre on retourne sur la form FormLogicielEtVersion et on vérifie si les paramètres 
+  rentrées sont conformes, si c'est le cas on insert cette version dans la base de données, sinon on affiche 
+  une fenetre pour indiquer que la version n'est pas valide et n'est donc pas enregistrer.
+
+
+- FormTachesProduction : Cette fenetre permet de visualiser les taches de production d'une personne sur une version,
+  les taches sont affichées dans un DataGridView et sont trier à l'aide d'une requete LINK, les personnes et versions 
+  sont affichées dans des ComboBox, la fenetre dispose aussi d'une case à cocher pour filtrer les taches terminées des non-terminées.
+  Pour plus de lisibilité la description de la tache selectionner est afficher à part du DataGridView.
+  
+  Cette fenetre contient aussi un bouton Ajouter Tache qui ouvre la form suivante
+
+
+- FormSaisieTache : Cette fenetre contient 3 TextBox qui servent à entrer le libellé, la durée prévue et la 
+  description de la tache. Elle contient aussi 5 ComboBox pour entrer le login, le code logiciel, 
+  le code module, le code activité et le numéro de la version.
+  Les ComboBox module et version sont mis à jour à l'aide d'une requete LINK en fonction du contenu de la ComboBox logiciel
+  Elle contient aussi deux boutons, le bouton ajouter permet d'enregistrer les valeurs de tous les champs dans la 
+  propriété LstProd de la fenetre, le bouton quitter la saisie permet de quitter la fenetre en enregistrant la liste 
+  dans la base de données
+  
+  
+L'application contient 2 class DAL:
+
+- DALTaches : Cette class contient 8 méthodes :
+    - GetPersonnes : Permet de charger la liste des personnes à l'aide d'une requete SQL 
+      et de la connection à la base de données, elle renvoi la liste des personnes.
+    - GetTacheProd : Idem que la fonction précédante mais pour les taches de production
+    - GetVersion : Idem que la fonction précédante mais pour les versions
+    - GetCodeActivité : Idem que la fonction précédante mais pour les codes activités (et seulement les codes)
+    - GetDataTableForTache : Permet de créer une table de type DataTable qui sera par la suite utiliser pour insérer les taches
+    - GetDataTableForTacheProd : Idem que la fonction précédante mais pour les taches de production
+    - InsertTache : Utilise les tables générées par les deux méthodes précédantes pour insérer les taches de production 
+      dans la base de données à l'aide de requete d'insertion (une pour les taches et l'autre pour les taches de production)
+    - ImportTaches : Permet de récupérer les taches de productions depuis un fichier Xml, cette méthode 
+      utilise la technique LINK to XML pour faire correspondre les tables existantes avec la mise en forme du document xml
+
+-DALLogiciel : Cette class contient 6 méthodes : 
+    - GetLogicielFromDataReader : Cette méthode permet d'éxécuter une requete de récupération pour les logiciel et 
+      appel la méthode GetLogiciel pour remplir une liste de logiciel
+    - GetLogiciel : Permet de remplir la liste de logiciel à partir d'une liste et d'un SqlDataReader et appel les 
+      méthodes GetModule et GetVersion pour remplir les liste module et version pour chaque logiciel
+    - GetModule : Cette méthode permet de remplir une liste de module spécifique à un logiciel
+    - GetVersion : Idem que la méthode précédante mais pour les versions
+    - InsertVersion : Permet d'insérer une version passer en argument
+    - SupprimerVersion : Permet de supprimer une version passer en argument
+    
+ 
