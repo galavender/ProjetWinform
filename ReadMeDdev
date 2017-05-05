@@ -33,4 +33,34 @@ Il y a pour l'instant 5 fenetres dans cette application :
   description de la tache. Elle contient aussi 5 ComboBox pour entrer le login, le code logiciel, 
   le code module, le code activité et le numéro de la version.
   Les ComboBox module et version sont mis à jour à l'aide d'une requete LINK en fonction du contenu de la ComboBox logiciel
-  Elle contient aussi deux boutons, le bouton ajouter permet d'enregistrer les valeurs de tous les champs dans 
+  Elle contient aussi deux boutons, le bouton ajouter permet d'enregistrer les valeurs de tous les champs dans la 
+  propriété LstProd de la fenetre, le bouton quitter la saisie permet de quitter la fenetre en enregistrant la liste 
+  dans la base de données
+  
+  
+L'application contient 2 class DAL:
+
+- DALTaches : Cette class contient 8 méthodes :
+    - GetPersonnes : Permet de charger la liste des personnes à l'aide d'une requete SQL 
+      et de la connection à la base de données, elle renvoi la liste des personnes.
+    - GetTacheProd : Idem que la fonction précédante mais pour les taches de production
+    - GetVersion : Idem que la fonction précédante mais pour les versions
+    - GetCodeActivité : Idem que la fonction précédante mais pour les codes activités (et seulement les codes)
+    - GetDataTableForTache : Permet de créer une table de type DataTable qui sera par la suite utiliser pour insérer les taches
+    - GetDataTableForTacheProd : Idem que la fonction précédante mais pour les taches de production
+    - InsertTache : Utilise les tables générées par les deux méthodes précédantes pour insérer les taches de production 
+      dans la base de données à l'aide de requete d'insertion (une pour les taches et l'autre pour les taches de production)
+    - ImportTaches : Permet de récupérer les taches de productions depuis un fichier Xml, cette méthode 
+      utilise la technique LINK to XML pour faire correspondre les tables existantes avec la mise en forme du document xml
+
+-DALLogiciel : Cette class contient 6 méthodes : 
+    - GetLogicielFromDataReader : Cette méthode permet d'éxécuter une requete de récupération pour les logiciel et 
+      appel la méthode GetLogiciel pour remplir une liste de logiciel
+    - GetLogiciel : Permet de remplir la liste de logiciel à partir d'une liste et d'un SqlDataReader et appel les 
+      méthodes GetModule et GetVersion pour remplir les liste module et version pour chaque logiciel
+    - GetModule : Cette méthode permet de remplir une liste de module spécifique à un logiciel
+    - GetVersion : Idem que la méthode précédante mais pour les versions
+    - InsertVersion : Permet d'insérer une version passer en argument
+    - SupprimerVersion : Permet de supprimer une version passer en argument
+    
+ 
