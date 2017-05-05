@@ -17,16 +17,18 @@ namespace JobOverview
         {
             InitializeComponent();
 
+            //Initialisation des dates
             version.DateOuverture = DateTime.Parse("01/01/1753");
             version.DateSortiePrévue = DateTime.Parse("01/01/1753");
             version.DateSortieRéelle = DateTime.Parse("01/01/1753");
 
-
+            //Enregistrement des dates rentrées
             DtpDateOuverture.ValueChanged += (object sender, EventArgs e)=> { version.DateOuverture = DtpDateOuverture.Value; };
             DtpDateSortiePrevue.ValueChanged += (object sender, EventArgs e) => { version.DateSortiePrévue = DtpDateSortiePrevue.Value; };
             DtpDateSortieReelle.ValueChanged += (object sender, EventArgs e) => { version.DateSortieRéelle = DtpDateSortieReelle.Value; };
         }
 
+        //Enregistrement du numéro de version et du millesime avant la fermeture de la fenetre
         protected override void OnClosing(CancelEventArgs e)
         {
 

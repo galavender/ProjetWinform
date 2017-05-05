@@ -16,12 +16,15 @@ namespace JobOverview
 			InitializeComponent();
 			ChildForms = new Dictionary<string, Form>();
             
+
+            //Branchement des méthodes permettant d'initialiser les fenetres filles
             MenuLogEtVers.Click += (object sender, EventArgs e) => ShowChild("JobOverview.FormLogicielEtVersion");
             MenuTacheProd.Click+= (object sender, EventArgs e) => ShowChild("JobOverview.FormTachesProduction");
             MenuImport.Click += MenuImport_Click;
-
         }
 
+        //Chargement des taches de production depuis un fichier xml et 
+        //insertion de ces taches dans le liste présente dans la forme FormTachesProduction
         private void MenuImport_Click(object sender, EventArgs e)
         {
             foreach (var item in DALTaches.ImportTaches())

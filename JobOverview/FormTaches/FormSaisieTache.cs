@@ -12,6 +12,8 @@ namespace JobOverview
 {
     public partial class FormSaisieTache : Form
     {
+
+        //Déclaration des listes à afficher dans les ComboBox
         private List<string> LstCodeActivité { get; set; }
         private List<Logiciel> LstLogiciel { get; set; }
         private List<Personne> LstPersonne { get; set; }
@@ -24,8 +26,10 @@ namespace JobOverview
             BtnAjouter.Click += BtnAjouter_Click;
         }
 
+        //Ajoute les données des différents dans une tache et insere cette tache dans la liste des taches
         private void BtnAjouter_Click(object sender, EventArgs e)
         {
+
             var tacheproduction = new TacheProd();
             tacheproduction.Annexe = false;
             tacheproduction.CodeActivité = (string)CbActivité.SelectedValue;
@@ -43,12 +47,14 @@ namespace JobOverview
             LstTacheProd.Add(tacheproduction);
         }
 
+        //Mise à jour du contenu des ComboBox module et version en fonction du logiciel sélectionné
         private void CbLogiciel_SelectedValueChanged(object sender, EventArgs e)
         {
             CbModule.DataSource = LstLogiciel.Where(c => c.Code == (string)CbLogiciel.SelectedValue).Select(c => c.LstModule).FirstOrDefault().Select(c=>c.Code).ToList();
             CbVersion.DataSource = LstLogiciel.Where(c => c.Code == (string)CbLogiciel.SelectedValue).Select(c => c.LstVersion).FirstOrDefault().Select(c => c.Numero).ToList();
         }
 
+        //Initialisation des listes et des ComboBox personne, logiciel et activité
         protected override void OnLoad(EventArgs e)
         {
             LstCodeActivité = DALTaches.GetCodeActivité();

@@ -10,6 +10,8 @@ namespace JobOverview
 {
     public static class DALLogiciel
     {
+
+        //Renvoi la liste des logiciels et leurs versions et modules
         public static List<Logiciel> GetLogicielFromDataReader()
         {
             var lst = new List<Logiciel>();
@@ -32,6 +34,8 @@ namespace JobOverview
 
             return lst;
         }
+
+        //Insère les données dans le DataReader dans une liste de logiciel
         private static void GetLogiciel(List<Logiciel> lst, SqlDataReader reader)
         {
             var log = new Logiciel();
@@ -50,10 +54,10 @@ namespace JobOverview
 
 
         }
-        private static void GetModule(string codeLog, List<Module> lstModule)
-        {
-            
 
+        //Renvoi la liste des modules pour un logiciel donné
+        private static void GetModule(string codeLog, List<Module> lstModule)
+        {           
             var connectString = Properties.Settings.Default.JobOverviewStringConnection;
             string queryString = @"select * from jo.Module	where CodeLogiciel=@log";
             var paramLog = new SqlParameter("@log", DbType.String);
@@ -80,6 +84,8 @@ namespace JobOverview
                 }
             }
         }
+
+        //Renvoi la liste des versions pour un logiciel donné
         private static void GetVersion(string codeLog, List<Version> lstVersion)
         {
             
@@ -115,6 +121,8 @@ namespace JobOverview
                 }
             }
         }
+
+        //Insert une version dans la base de données
         public static void InsertVersion(Version vers, string codeLog)
         {
             var connectString = Properties.Settings.Default.JobOverviewStringConnection;
@@ -160,6 +168,8 @@ namespace JobOverview
                 }
             }
         }
+
+        //Supprime une version de la base de données
         public static void SupprimerVersion(float codeVers, string codeLog)
         {
             var connectString = Properties.Settings.Default.JobOverviewStringConnection;

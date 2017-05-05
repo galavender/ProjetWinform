@@ -11,17 +11,19 @@ namespace JobOverview
 {
     public static class DALTaches
     {
+        //Charge la liste des personnes depuis la base renseignée par le paramètre "JobOverviewStringConnection"
         public static List<Personne> GetPersonnes()
         {
             var LstPersonnes = new List<Personne>();
             var connectString = Properties.Settings.Default.JobOverviewStringConnection;
-            string queryString = @"select * from jo.Personne";
+
+            //Requête de récupération de l'ensemble des informations sur les personnes
+            string queryString = @"select * from jo.Personne";   
 
             using (var connect = new SqlConnection(connectString))
             {
                 var command = new SqlCommand(queryString, connect);
                 connect.Open();
-
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -42,10 +44,14 @@ namespace JobOverview
             }
             return LstPersonnes;
         }
+
+        //Charge la liste des tâches de production depuis la base renseignée par le paramètre "JobOverviewStringConnection"
         public static List<TacheProd> GetTacheProd()
         {
             var LstTacheProd = new List<TacheProd>();
             var connectString = Properties.Settings.Default.JobOverviewStringConnection;
+
+            //Requête de récupération de l'ensemble des informations sur les tâches de production
             string queryString = @" select * 
                                     from jo.Tache t
                                     inner join jo.TacheProd tp on tp.IdTache=t.IdTache";
@@ -54,7 +60,6 @@ namespace JobOverview
             {
                 var command = new SqlCommand(queryString, connect);
                 connect.Open();
-
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -69,9 +74,9 @@ namespace JobOverview
                         tache.Description = (string)reader["Description"];
                         tache.Numero = (int)reader["Numero"];
                         tache.DureePrevue = (float)reader["DureePrevue"];
-                        tache.DureeRestanteEstimee = (int)reader["DureeRestanteEstimee"];
+                        tache.DureeRestanteEstimee = (float)reader["DureeRestanteEstimee"];
                         tache.CodeModule = (string)reader["CodeModule"];
-                        tache.CodeLogicielModule = (string)reader["CodeLogicielModule"];
+                        tache.CodeLogicielModule = (string)reader["CodeLogicieModule"];
                         tache.NumeroVersion = (float)reader["NumeroVersion"];
 
                         LstTacheProd.Add(tache);
@@ -80,10 +85,14 @@ namespace JobOverview
             }
             return LstTacheProd;
         }
+
+        //Charge la liste des versions depuis la base renseignée par le paramètre "JobOverviewStringConnection"
         public static List<Version> GetVersion()
         {
             var LstVersion = new List<Version>();
             var connectString = Properties.Settings.Default.JobOverviewStringConnection;
+
+            //Requête de récupération de l'ensemble des informations sur les versions
             string queryString = @" select * 
                                     from jo.Version";
 
@@ -118,46 +127,14 @@ namespace JobOverview
 
 
         }
-        public static List<TacheProd> ImportTaches()
-        {
-            List<TacheProd> LstTacheProd = new List<TacheProd>();
-
-            XDocument doc = XDocument.Load(@"..\..\TachesProd.xml");
-
-            foreach (var item in doc.Descendants("TacheProd"))
-            {
-                var tacheprod = new TacheProd();
-                tacheprod.LstTravail = new List<Travail>();
-
-                tacheprod.Libelle = (string)item.Attribute("Libelle");
-                tacheprod.CodeActivité = (string)item.Attribute("Activite");
-                tacheprod.Login = (string)item.Attribute("Personne");
-                tacheprod.DureePrevue = (float)item.Attribute("DureePrev");
-                tacheprod.DureeRestanteEstimee = (float)item.Attribute("DureeRest");
-                tacheprod.CodeLogicielModule = (string)item.Attribute("Logiciel");
-                tacheprod.CodeModule = (string)item.Attribute("Module");
-                tacheprod.NumeroVersion = (float)item.Attribute("Version");
-
-                foreach (var ite in item.Descendants("Travail"))
-                {
-                    var travail = new Travail();
-
-                    travail.DateTravail = (DateTime)ite.Attribute("Date");
-                    travail.Heures = (float)ite.Attribute("Heures");
-                    travail.TauxProductivite = (float)ite.Attribute("TauxProduct");
-
-                    tacheprod.LstTravail.Add(travail);
-                }
-                LstTacheProd.Add(tacheprod);
-
-            }
-            return LstTacheProd;
-
-        }
+        
+        //Charge la liste des codes des activités depuis la base renseignée par le paramètre "JobOverviewStringConnection"
         public static List<string> GetCodeActivité()
         {
             List<string> LstCode = new List<string>();
             var connectString = Properties.Settings.Default.JobOverviewStringConnection;
+
+            //Requête de récupération des codes des activités
             string queryString = @" select CodeActivite from jo.Activite where Annexe=0";
 
             using (var connect = new SqlConnection(connectString))
@@ -180,11 +157,14 @@ namespace JobOverview
             return LstCode;
 
         }
+        
+        //Créer une table tache compatible avec les requêtes Sql
         private static DataTable GetDataTableForTache(List<TacheProd> LstTacheProd)
         {
-
+            
             DataTable table = new DataTable();
 
+            //Création des colonnes 
             var colIdTache = new DataColumn("IdTache", typeof(Guid));
             colIdTache.AllowDBNull = false;
             table.Columns.Add(colIdTache);
@@ -207,11 +187,9 @@ namespace JobOverview
 
             table.Columns.Add(new DataColumn("description", typeof(string)));
 
+            //Entré de donner dans la table
             foreach (var p in LstTacheProd)
             {
-
-
-
                 #region Ligne de table
                 DataRow ligne = table.NewRow();
 
@@ -226,25 +204,23 @@ namespace JobOverview
                 else ligne["description"] = DBNull.Value;
                 #endregion
 
-
                 table.Rows.Add(ligne);
             }
 
             return table;
         }
+        
+        //Créer une table Tache de production compatible avec les requêtes Sql
         private static DataTable GetDataTableForTacheProd(List<TacheProd> LstTacheProd)
         {
 
             DataTable table = new DataTable();
 
+            //Création des colonnes
             var colIdTache = new DataColumn("IdTache", typeof(Guid));
             colIdTache.AllowDBNull = false;
             table.Columns.Add(colIdTache);
 
-            /*var colNumero = new DataColumn("Numero", typeof(int));
-            colNumero.AllowDBNull = false;
-            table.Columns.Add(colNumero);
-            */
             var colDureePrevue = new DataColumn("DureePrevue", typeof(float));
             colDureePrevue.AllowDBNull = false;
             table.Columns.Add(colDureePrevue);
@@ -269,16 +245,13 @@ namespace JobOverview
             colCodeLogicielVersion.AllowDBNull = false;
             table.Columns.Add(colCodeLogicielVersion);
 
+            //Entré de donner dans la table
             foreach (var p in LstTacheProd)
             {
-
-
-
                 #region Ligne de table
                 DataRow ligne = table.NewRow();
 
                 ligne["IdTache"] = p.IdTache;
-                //ligne["Numero"] = p.Numero;
                 ligne["DureePrevue"] = p.DureePrevue;
                 ligne["DureeRestanteEstimee"] = p.DureeRestanteEstimee;
                 ligne["CodeModule"] = p.CodeModule;
@@ -287,24 +260,69 @@ namespace JobOverview
                 ligne["CodeLogicielVersion"] = p.CodeLogicielVersion;
                 #endregion
 
-
                 table.Rows.Add(ligne);
             }
 
             return table;
         }
 
+        //Importe les taches de production depuis le fichier TachesProd.xml (Méthode LINQ To XML)
+        public static List<TacheProd> ImportTaches()
+        {
+            List<TacheProd> LstTacheProd = new List<TacheProd>();
+
+            //Chargement du document
+            XDocument doc = XDocument.Load(@"..\..\TachesProd.xml");
+
+            //Insert des différents attributs dans la liste de tache de production
+            foreach (var item in doc.Descendants("TacheProd"))
+            {
+                var tacheprod = new TacheProd();
+                tacheprod.LstTravail = new List<Travail>();
+
+                tacheprod.Libelle = (string)item.Attribute("Libelle");
+                tacheprod.CodeActivité = (string)item.Attribute("Activite");
+                tacheprod.Login = (string)item.Attribute("Personne");
+                tacheprod.DureePrevue = (float)item.Attribute("DureePrev");
+                tacheprod.DureeRestanteEstimee = (float)item.Attribute("DureeRest");
+                tacheprod.CodeLogicielModule = (string)item.Attribute("Logiciel");
+                tacheprod.CodeModule = (string)item.Attribute("Module");
+                tacheprod.NumeroVersion = (float)item.Attribute("Version");
+
+
+                //Insert des différents attributs dans la liste de travail de la tache associée
+                foreach (var ite in item.Descendants("Travail"))
+                {
+                    var travail = new Travail();
+
+                    travail.DateTravail = (DateTime)ite.Attribute("Date");
+                    travail.Heures = (float)ite.Attribute("Heures");
+                    travail.TauxProductivite = (float)ite.Attribute("TauxProduct");
+
+                    tacheprod.LstTravail.Add(travail);
+                }
+                LstTacheProd.Add(tacheprod);
+
+            }
+            return LstTacheProd;
+
+        }
+
+        //Insert les taches de production passées en paramètre dans la base renseignée par le paramètre "JobOverviewStringConnection"
         public static void InsertTache(List<TacheProd> LstTacheProd)
         {
             var connectString = Properties.Settings.Default.JobOverviewStringConnection;
 
+
+            //Requete d'insertion des taches
             string queryString = @" insert jo.Tache(IdTache,Libelle,Annexe,CodeActivite,Login,Description)
                                     select IdTache,Libelle,Annexe,CodeActivite,Login,description from @tab";
 
+            //Requete d'insertion des taches de production
             string queryString2 = @"insert jo.TacheProd(IdTache,DureePrevue,DureeRestanteEstimee,CodeModule,CodeLogicieModule,NumeroVersion,CodeLogicielVersion)
                                     select IdTache,DureePrevue,DureeRestanteEstimee,CodeModule,CodeLogicielModule,NumeroVersion,CodeLogicielVersion from @tab";
 
-
+            //Création des tables compatibles avec les requetes Sql
             var param = new SqlParameter("@tab", SqlDbType.Structured);
             DataTable tableProd = GetDataTableForTache(LstTacheProd);
             param.TypeName = "TypeTableTache";
@@ -315,24 +333,22 @@ namespace JobOverview
             param2.TypeName = "TypeTableTacheProd";
             param2.Value = tableProd2;
 
+
             using (var connect = new SqlConnection(connectString))
             {
-
-
-
                 connect.Open();
                 SqlTransaction tran = connect.BeginTransaction();
                 
                 try
                 {
+                    //Ajout des tables à insérer et exécution des requetes d'insertion
                     var command = new SqlCommand(queryString, connect, tran);
                     command.Parameters.Add(param);
                     command.ExecuteNonQuery();
 
                     command = new SqlCommand(queryString2, connect, tran);
                     command.Parameters.Add(param2);
-                    command.ExecuteNonQuery();
-                    
+                    command.ExecuteNonQuery();   
 
                     tran.Commit();
                 }
