@@ -1,0 +1,36 @@
+Documentation technique à l'intention d'un developpeur.
+
+Il y a pour l'instant 5 fenetres dans cette application :
+
+- MDIForm : C'est la fenetre mère, elle référence toute les fenetres et ne sert qu'à gérer les fenetres filles 
+  (elle sert aussi à gérer l'import/ export qui n'ont pas de fenetre propre)  
+  
+- FormLogicielEtVersion : Cette fenetre permet de visualiser les différents modules et versions liés à un logiciel 
+  via des requetes LINK, le logiciel est selectionner dans une ComboBox et les modules et versions sont contenus 
+  dans des DataGridView qui sont mis à jour à chaque changement dans la ComboBox du logiciel.
+  
+  Cette fenetre contient aussi deux boutons : un bouton qui permet de supprimer la version selectionner dans le datagrid view 
+  et un bouton qui ouvre la fenetre modale ajout de version.
+  
+- FormModaleAjoutVersion : Comme dit précedemment cette fenetre est appelé à l'aide du bouton "Ajouter version" 
+  dans la form FormLogicielEtVersion, elle contient 2 TextBox pour le numéro de version et le millesime et 3 
+  DateTimePicker pour les trois dates (ouverture, sortie prévue et sortie réelle).
+  
+  A la fermeture de cette fenetre on retourne sur la form FormLogicielEtVersion et on vérifie si les paramètres 
+  rentrées sont conformes, si c'est le cas on insert cette version dans la base de données, sinon on affiche 
+  une fenetre pour indiquer que la version n'est pas valide et n'est donc pas enregistrer.
+
+
+- FormTachesProduction : Cette fenetre permet de visualiser les taches de production d'une personne sur une version,
+  les taches sont affichées dans un DataGridView et sont trier à l'aide d'une requete LINK, les personnes et versions 
+  sont affichées dans des ComboBox, la fenetre dispose aussi d'une case à cocher pour filtrer les taches terminées des non-terminées.
+  Pour plus de lisibilité la description de la tache selectionner est afficher à part du DataGridView.
+  
+  Cette fenetre contient aussi un bouton Ajouter Tache qui ouvre la form suivante
+
+
+- FormSaisieTache : Cette fenetre contient 3 TextBox qui servent à entrer le libellé, la durée prévue et la 
+  description de la tache. Elle contient aussi 5 ComboBox pour entrer le login, le code logiciel, 
+  le code module, le code activité et le numéro de la version.
+  Les ComboBox module et version sont mis à jour à l'aide d'une requete LINK en fonction du contenu de la ComboBox logiciel
+  Elle contient aussi deux boutons, le bouton ajouter permet d'enregistrer les valeurs de tous les champs dans 
