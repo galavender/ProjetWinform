@@ -9,7 +9,7 @@ namespace JobOverview
 		// Collection des fenêtres filles
 		public Dictionary<string, Form> ChildForms { get; private set; }
 
-        public static List<TacheProd> LstTacheProd { get; set; }
+       
 
         public MDIForm()
 		{
@@ -24,7 +24,10 @@ namespace JobOverview
 
         private void MenuImport_Click(object sender, EventArgs e)
         {
-            LstTacheProd = DALTaches.ImportTaches();
+            foreach (var item in DALTaches.ImportTaches())
+            {
+                FormTachesProduction.LstTacheProd.Add(item);
+            }
         }
 
         // Affichage d'une fenêtre fille

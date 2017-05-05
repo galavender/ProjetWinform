@@ -26,8 +26,16 @@ namespace JobOverview
         {
             if (DgvVersion.CurrentRow!=null)
             {
-                LstLogiciel.Where(c => c.Code == (string)CbLog.SelectedItem).Select(c => c.LstVersion).FirstOrDefault().Remove((Version)DgvVersion.CurrentRow.DataBoundItem);
-                DgvVersion.DataSource = LstLogiciel.Where(c => c.Code == (string)CbLog.SelectedItem).Select(c => c.LstVersion).FirstOrDefault().ToList();
+                try
+                {
+                    DALLogiciel.SupprimerVersion(((Version)DgvVersion.CurrentRow.DataBoundItem).Numero, ((string)CbLog.SelectedItem));
+                    LstLogiciel.Where(c => c.Code == (string)CbLog.SelectedItem).Select(c => c.LstVersion).FirstOrDefault().Remove((Version)DgvVersion.CurrentRow.DataBoundItem);
+                    DgvVersion.DataSource = LstLogiciel.Where(c => c.Code == (string)CbLog.SelectedItem).Select(c => c.LstVersion).FirstOrDefault().ToList();
+                }
+                catch
+                {
+                    MessageBox.Show("Imposible de supprimer la version\nElle est référencé par une tache de production ou une realease", "Erreur de suppression",MessageBoxButtons.OK);
+                }
             }
         }
 
@@ -38,13 +46,14 @@ namespace JobOverview
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                   if(!LstLogiciel.Select(c=>c.LstVersion).FirstOrDefault().Select(c=>c.Numero).Contains(form.version.Numero) 
+                   if(!LstLogiciel.Where(c=>c.Code==(string)CbLog.SelectedItem).Select(c=>c.LstVersion).FirstOrDefault().Select(c=>c.Numero).Contains(form.version.Numero) 
                         && form.version.Millesime!=0
                         && form.version.DateOuverture !=  DateTime.Parse("01/01/1753")
                         && form.version.DateSortiePrévue != DateTime.Parse("01/01/1753"))
                     {
                         LstLogiciel.Where(c => c.Code == (string)CbLog.SelectedItem).Select(c => c.LstVersion).FirstOrDefault().Add(form.version);
                         DgvVersion.DataSource = LstLogiciel.Where(c => c.Code == (string)CbLog.SelectedItem).Select(c => c.LstVersion).FirstOrDefault().ToList();
+                        DALLogiciel.InsertVersion(form.version, ((string)CbLog.SelectedItem));
                     }
 
                 }

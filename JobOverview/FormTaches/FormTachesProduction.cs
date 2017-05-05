@@ -14,7 +14,8 @@ namespace JobOverview
     {
 
         public List<Personne> LstPersonnes { get; set; }
-        //public List<TacheProd> LstTacheProd { get; set; }
+        public static List<TacheProd> LstTacheProd { get; set; } = new List<TacheProd>();
+        public static List<TacheProd> LstTacheProdInsert { get; set; } = new List<TacheProd>();
         public List<Version> LstVersion { get; set; } = new List<Version>();
         public FormTachesProduction()
         {
@@ -22,15 +23,55 @@ namespace JobOverview
 
             CbVersion.SelectedValueChanged += CbVersion_SelectedValueChanged;
             CbPersonne.SelectedValueChanged += CbVersion_SelectedValueChanged;
+            DgvTacheProd.SelectionChanged += DgvTacheProd_SelectionChanged;
+            BtnAjoutTache.Click += BtnAjoutTache_Click;
+            BtnAjoutTache.Click += CbVersion_SelectedValueChanged;
+            CheckBTermi.Click += CbVersion_SelectedValueChanged;
+        }
+
+        private void BtnAjoutTache_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormSaisieTache())
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    foreach (var item in form.LstTacheProd)
+                    {
+                        LstTacheProd.Add(item);
+                        LstTacheProdInsert.Add(item);
+                    }
+                    DALTaches.InsertTache(LstTacheProdInsert);
+                    LstTacheProdInsert.Clear();
+                }
+            }
+        }
+
+        private void DgvTacheProd_SelectionChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(((TacheProd)DgvTacheProd.CurrentRow.DataBoundItem).Description))
+                LblDescriptionTache.Text = ((TacheProd)DgvTacheProd.CurrentRow.DataBoundItem).Description;
+            else
+                LblDescriptionTache.Text = "Pas de descripttion pour cette tache";
         }
 
         private void CbVersion_SelectedValueChanged(object sender, EventArgs e)
         {
             if (CheckBTermi.Checked)
-                DgvTacheProd.DataSource = MDIForm.LstTacheProd.Where(c => c.Login == (string)CbPersonne.SelectedValue && c.NumeroVersion == (float)CbVersion.SelectedValue && c.DureeRestanteEstimee == 0);
-
+            {
+                List<TacheProd> lst = LstTacheProd.Where(c => c.Login == ((Personne)CbPersonne.SelectedItem).Login && c.NumeroVersion == ((Version)CbVersion.SelectedItem).Numero && c.DureeRestanteEstimee == 0).ToList();
+                DgvTacheProd.DataSource = lst;
+            }
             else
-                DgvTacheProd.DataSource = MDIForm.LstTacheProd.Where(c => c.Login == (string)CbPersonne.SelectedValue && c.NumeroVersion == (float)CbVersion.SelectedValue && c.DureeRestanteEstimee != 0);
+            {
+                List<TacheProd> lst =LstTacheProd.Where(c => c.Login == ((Personne)CbPersonne.SelectedItem).Login && c.NumeroVersion == ((Version)CbVersion.SelectedItem).Numero && c.DureeRestanteEstimee != 0).ToList();
+                DgvTacheProd.DataSource = lst;
+            }
+            DgvTacheProd.Columns["CodeLogicielVersion"].Visible = false;
+            DgvTacheProd.Columns["Description"].Visible = false;
+            DgvTacheProd.Columns["IdTache"].Visible = false;
+            DgvTacheProd.Columns["Annexe"].Visible = false;
+
 
         }
 
@@ -39,7 +80,7 @@ namespace JobOverview
             LstPersonnes = DALTaches.GetPersonnes();
             foreach (var item in DALTaches.GetTacheProd())
             {
-                MDIForm.LstTacheProd.Add(item);
+                LstTacheProd.Add(item);
             }
           
             LstVersion = DALTaches.GetVersion();

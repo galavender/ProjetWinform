@@ -11,3 +11,4 @@ C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.
 C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormLogicielEtVersion.resources
 C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormModaleAjoutVersion.resources
 C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormTachesProduction.resources
+C:\Users\glavender\Source\Repos\ProjetWinform\JobOverview\obj\Debug\JobOverview.FormSaisieTache.resources

@@ -35,6 +35,7 @@
             this.CheckBTermi = new System.Windows.Forms.CheckBox();
             this.DgvTacheProd = new System.Windows.Forms.DataGridView();
             this.LblDescriptionTache = new System.Windows.Forms.Label();
+            this.BtnAjoutTache = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTacheProd)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,11 +101,21 @@
             this.LblDescriptionTache.TabIndex = 7;
             this.LblDescriptionTache.Text = "Description tâche ";
             // 
+            // BtnAjoutTache
+            // 
+            this.BtnAjoutTache.Location = new System.Drawing.Point(506, 31);
+            this.BtnAjoutTache.Name = "BtnAjoutTache";
+            this.BtnAjoutTache.Size = new System.Drawing.Size(94, 23);
+            this.BtnAjoutTache.TabIndex = 8;
+            this.BtnAjoutTache.Text = "Ajouter Tâche";
+            this.BtnAjoutTache.UseVisualStyleBackColor = true;
+            // 
             // FormTachesProduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(787, 514);
+            this.Controls.Add(this.BtnAjoutTache);
             this.Controls.Add(this.LblDescriptionTache);
             this.Controls.Add(this.DgvTacheProd);
             this.Controls.Add(this.CheckBTermi);
@@ -129,5 +140,6 @@
         private System.Windows.Forms.CheckBox CheckBTermi;
         private System.Windows.Forms.DataGridView DgvTacheProd;
         private System.Windows.Forms.Label LblDescriptionTache;
+        private System.Windows.Forms.Button BtnAjoutTache;
     }
 }

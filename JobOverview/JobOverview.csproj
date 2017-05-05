@@ -62,6 +62,12 @@
     <Compile Include="FormLogiciel\Module.cs" />
     <Compile Include="FormLogiciel\Version.cs" />
     <Compile Include="FormTaches\DALTaches.cs" />
+    <Compile Include="FormTaches\FormSaisieTache.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTaches\FormSaisieTache.Designer.cs">
+      <DependentUpon>FormSaisieTache.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTaches\FormTachesProduction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogiciel\FormModaleAjoutVersion.resx">
       <DependentUpon>FormModaleAjoutVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTaches\FormSaisieTache.resx">
+      <DependentUpon>FormSaisieTache.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTaches\FormTachesProduction.resx">
       <DependentUpon>FormTachesProduction.cs</DependentUpon>
